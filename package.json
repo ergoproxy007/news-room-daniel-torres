@@ -1,5 +1,5 @@
 {
-  "name": "news-room-daniel-torres",
+  "name": "bloque2-still-fog-v0c5w",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -45,5 +45,7 @@
   },
   "devDependencies": {
     "create-react-component-folder": "^0.3.4"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }
