@@ -39,10 +39,12 @@ class ContenedorMobile extends Component<ContenedorMobileProps, any> {
             <Sidebar.Pushable>
               <Sidebar
                 as={Menu}
-                animation="uncover"
+                animation='overlay'
+                icon="labeled"
                 inverted
                 vertical
                 visible={sidebarOpened}
+                width='thin'
               >
                 <Menu.Item as="a" active> HOME </Menu.Item>
                 <Menu.Item as="a">POLITÍCA</Menu.Item>
@@ -68,7 +70,9 @@ class ContenedorMobile extends Component<ContenedorMobileProps, any> {
                   <Container>
                     <Menu inverted pointing secondary size="large">
                       <Menu.Item onClick={this.handleToggle}>
-                        <Icon name="sidebar" />
+                       <Button Button as="a" color='black'>
+                          Menu
+                        </Button>
                       </Menu.Item>
                       <Menu.Item position="right">
                         <Button as="a" inverted>
