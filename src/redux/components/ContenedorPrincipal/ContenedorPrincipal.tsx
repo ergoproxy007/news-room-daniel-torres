@@ -48,12 +48,13 @@ class ContenedorPrincipal extends Component<ContenedorPrincipalProps, any> {
             >
               <Container>
                 <Menu.Item as="a" active>
-                  Home
+                  HOME
                 </Menu.Item>
-                <Menu.Item as="a">NUEVO DANIEL</Menu.Item>
-                <Menu.Item as="a">Work</Menu.Item>
-                <Menu.Item as="a">Company</Menu.Item>
-                <Menu.Item as="a">Careers</Menu.Item>
+                <Menu.Item as="a">POLITÍCA</Menu.Item>
+                <Menu.Item as="a">INTERNACIONAL</Menu.Item>
+                <Menu.Item as="a">TECNOLOGÍA</Menu.Item>
+                <Menu.Item as="a">ESPECTÁCULOS</Menu.Item>
+                <Menu.Item as="a">DEPORTES</Menu.Item>
                 <Menu.Item position="right">
                   <Button as="a" inverted={!fixed}>
                     Log in
