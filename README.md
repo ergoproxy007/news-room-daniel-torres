@@ -1,6 +1,14 @@
 # news-room-daniel-torres
 proyecto.bloque-2
 
+Comandos a ejecutar: 
+npm install --save react-router-dom
+npm install semantic-ui-react semantic-ui-css
+npm install --save redux
+npm install --save redux-thunk
+npm install react-redux
+npm install uuid
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
