@@ -10,6 +10,7 @@ import {
     Segment,
     Sidebar
   } from "semantic-ui-react";
+import HomeHeading from '../../../views/HomepageHeading/HomeHeading';
 
 type ContenedorMobileProps = {
 };
@@ -52,7 +53,6 @@ class ContenedorMobile extends Component<ContenedorMobileProps, any> {
                 <Menu.Item as="a">ESPECTÁCULOS</Menu.Item>
                 <Menu.Item as="a">DEPORTES</Menu.Item>
                 <Menu.Item as="a">Log in</Menu.Item>
-                <Menu.Item as="a">Sign Up</Menu.Item>
               </Sidebar>
     
               <Sidebar.Pusher
@@ -83,8 +83,8 @@ class ContenedorMobile extends Component<ContenedorMobileProps, any> {
                       </Menu.Item>
                     </Menu>
                   </Container>
+                  <HomeHeading mobile={true} />
                 </Segment>
-    
                 {children}
               </Sidebar.Pusher>
             </Sidebar.Pushable>

@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import "semantic-ui-css/semantic.min.css";
+import PropTypes from 'prop-types';
 
 import {
   Button,
@@ -11,6 +10,9 @@ import {
   Visibility
 } from "semantic-ui-react";
 
+import "semantic-ui-css/semantic.min.css";
+import HomeHeading from '../../../views/HomepageHeading/HomeHeading';
+
 type ContenedorDesktopProps = {
 };
 
@@ -19,7 +21,7 @@ class ContenedorDesktop extends Component<ContenedorDesktopProps, any> {
         children: PropTypes.node
     };
 
-    state = {fixed: true};
+    state = {fixed: false};
   
     hideFixedMenu = () => this.setState({ fixed: false });
     showFixedMenu = () => this.setState({ fixed: true });
@@ -42,15 +44,15 @@ class ContenedorDesktop extends Component<ContenedorDesktopProps, any> {
               vertical
             >
               <Menu
-                fixed={fixed ? "top" : "bottom" }
+                fixed={"top"}
                 inverted={!fixed}
                 pointing={!fixed}
                 secondary={!fixed}
                 size="large"
               >
                   <Container>
-                    <Menu.Item as="a" active> HOME </Menu.Item>
-                    <Menu.Item as="a">POLITÍCA</Menu.Item>
+                    <Menu.Item as="a" active={false}> HOME </Menu.Item>
+                    <Menu.Item as="a" active={true}>POLITÍCA</Menu.Item>
                     <Menu.Item as="a">INTERNACIONAL</Menu.Item>
                     <Menu.Item as="a">TECNOLOGÍA</Menu.Item>
                     <Menu.Item as="a">ESPECTÁCULOS</Menu.Item>
@@ -59,20 +61,12 @@ class ContenedorDesktop extends Component<ContenedorDesktopProps, any> {
                     <Button as="a" inverted={!fixed}>
                         Log in
                     </Button>
-                    <Button
-                        as="a"
-                        inverted={!fixed}
-                        primary={fixed}
-                        style={{ marginLeft: "0.5em" }}
-                    >
-                        Sign Up
-                    </Button>
                     </Menu.Item>
-                </Container>
+                  </Container>
               </Menu>
+              <HomeHeading mobile={false} />
             </Segment>
           </Visibility>
-  
           {children}
         </Responsive>
       );
