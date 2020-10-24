@@ -1,13 +1,26 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+import * as serviceWorker from './serviceWorker';
+import store from './redux/store';
+
+import App from './App';
+import ContenedorPrincipal from './redux/components/ContenedorPrincipal';
+
+import './index.css';
+
+render(
+  <Provider store={store}>
+    <HashRouter>
+      <App>
+        <Switch>
+          <Route exact path="/" component={ContenedorPrincipal} />
+        </Switch>
+      </App>
+    </HashRouter>
+  </Provider>,
   document.getElementById('root')
 );
 
