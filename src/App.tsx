@@ -2,9 +2,8 @@ import React, { Component, ComponentType } from 'react';
 import { withRouter, RouteProps  } from 'react-router';
 import { connect } from 'react-redux';
 import { ScreenState } from './redux/model/ScreenState';
-import { Button } from 'semantic-ui-react';
-import ContenedorPrincipal from './redux/components/ContenedorPrincipal';
-import ContenedorResponsive from './redux/components/ContenedorResponsive/ContenedorResponsive';
+import MainContainer from './redux/components/MainContainer';
+import ResponsiveContainer from './redux/components/ResponsiveContainer';
 import HomepageLayout from './redux/components/HomepageLayout';
 
 interface AppProps {
@@ -12,12 +11,12 @@ interface AppProps {
   darkMode: boolean
 };
 
-const AllContainer = () => {
+const AllNewsFeeds = () => {
   return (
     <div>
-      <ContenedorResponsive>
+      <ResponsiveContainer>
         <HomepageLayout />
-      </ContenedorResponsive>
+      </ResponsiveContainer>
     </div>
     );
 }
@@ -31,8 +30,8 @@ class App extends Component<AppProps & RouteProps, any> {
       <>
         {
           children
-          ? <ContenedorPrincipal>{children}</ContenedorPrincipal>
-          : <AllContainer />
+          ? <MainContainer>{children}</MainContainer>
+          : <AllNewsFeeds />
         }
       </>
     );

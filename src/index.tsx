@@ -7,7 +7,6 @@ import * as serviceWorker from './serviceWorker';
 import store from './redux/store';
 
 import App from './App';
-import ContenedorPrincipal from './redux/components/ContenedorPrincipal';
 
 import './index.css';
 import HomeHeading from './views/HomepageHeading';

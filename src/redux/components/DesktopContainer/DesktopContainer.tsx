@@ -15,10 +15,10 @@ import "semantic-ui-css/semantic.min.css";
 import SearchNews from '../SearchNews';
 import HomeHeading from '../../../views/HomepageHeading';
 
-type ContenedorDesktopProps = {
+type DesktopContainerProps = {
 };
 
-class ContenedorDesktop extends Component<ContenedorDesktopProps, any> {
+class DesktopContainer extends Component<DesktopContainerProps, any> {
     static propTypes = {
         children: PropTypes.node
     };
@@ -73,4 +73,4 @@ class ContenedorDesktop extends Component<ContenedorDesktopProps, any> {
     }
 }
 
-export default ContenedorDesktop;
+export default DesktopContainer;

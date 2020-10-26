@@ -13,10 +13,10 @@ import {
 import SearchNews from '../SearchNews';
 import HomeHeading from '../../../views/HomepageHeading';
 
-type ContenedorMobileProps = {
+type MobileContainerProps = {
 };
 
-class ContenedorMobile extends Component<ContenedorMobileProps, any> {
+class MobileContainer extends Component<MobileContainerProps, any> {
     static propTypes = {
         children: PropTypes.node
     };
@@ -86,4 +86,4 @@ class ContenedorMobile extends Component<ContenedorMobileProps, any> {
       }
 }
 
-export default ContenedorMobile;
+export default MobileContainer;
