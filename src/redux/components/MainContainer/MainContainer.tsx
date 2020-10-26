@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ResponsiveContainer from '../ResponsiveContainer/ResponsiveContainer';
+import ResponsiveContainer from '../ResponsiveContainer';
 
 class MainContainer extends Component {
   public render() {

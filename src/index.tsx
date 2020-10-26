@@ -9,14 +9,14 @@ import store from './redux/store';
 import App from './App';
 
 import './index.css';
-import HomeHeading from './views/HomepageHeading';
+import CategoriaNoticias from './redux/components/CategoriaNoticias';
 
 render(
   <Provider store={store}>
     <HashRouter>
       <App>
         <Switch>
-          <Route path="/home" component={HomeHeading} />
+          <Route path="/home" component={CategoriaNoticias} />
         </Switch>
       </App>
     </HashRouter>

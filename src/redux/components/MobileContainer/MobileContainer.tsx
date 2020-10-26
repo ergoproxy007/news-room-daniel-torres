@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import "semantic-ui-css/semantic.min.css";
 
@@ -14,11 +15,13 @@ import SearchNews from '../SearchNews';
 import HomeHeading from '../../../views/HomepageHeading';
 
 type MobileContainerProps = {
+  advice?: boolean
 };
 
 class MobileContainer extends Component<MobileContainerProps, any> {
     static propTypes = {
-        children: PropTypes.node
+        children: PropTypes.node,
+        advice: PropTypes.bool
     };
     state = {sidebarOpened: false};
 
@@ -32,7 +35,7 @@ class MobileContainer extends Component<MobileContainerProps, any> {
     this.setState({ sidebarOpened: !this.state.sidebarOpened });
 
     public render() {
-        const { children } = this.props;
+        const { children, advice } = this.props;
         const { sidebarOpened } = this.state;
     
         return (
@@ -47,7 +50,9 @@ class MobileContainer extends Component<MobileContainerProps, any> {
                 visible={sidebarOpened}
                 width='thin'
               >
-                <Menu.Item as="a" active> HOME </Menu.Item>
+                <Menu.Item as="a" active>
+                  <Link to="/home">HOME</Link>
+                </Menu.Item>
                 <Menu.Item as="a">POLITÍCA</Menu.Item>
                 <Menu.Item as="a">INTERNACIONAL</Menu.Item>
                 <Menu.Item as="a">TECNOLOGÍA</Menu.Item>
@@ -63,7 +68,7 @@ class MobileContainer extends Component<MobileContainerProps, any> {
                 <Segment
                   inverted
                   textAlign="center"
-                  style={{ minHeight: 350, padding: "1em 0em" }}
+                  style={{ minHeight: advice ? 350 : 0, padding: "1em 0em" }}
                   vertical
                 >
                   <Container>
@@ -76,7 +81,7 @@ class MobileContainer extends Component<MobileContainerProps, any> {
                       </Menu.Item>
                     </Menu>
                   </Container>
-                  <HomeHeading mobile />
+                  { advice ? <HomeHeading mobile /> : null }
                 </Segment>
                 {children}
               </Sidebar.Pusher>

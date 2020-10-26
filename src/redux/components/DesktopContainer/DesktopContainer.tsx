@@ -16,11 +16,13 @@ import SearchNews from '../SearchNews';
 import HomeHeading from '../../../views/HomepageHeading';
 
 type DesktopContainerProps = {
+  advice?: boolean
 };
 
 class DesktopContainer extends Component<DesktopContainerProps, any> {
     static propTypes = {
-        children: PropTypes.node
+        children: PropTypes.node,
+        advice: PropTypes.bool
     };
 
     state = {fixed: false};
@@ -29,9 +31,8 @@ class DesktopContainer extends Component<DesktopContainerProps, any> {
     showFixedMenu = () => this.setState({ fixed: true });
   
     public render() {
-      const { children } = this.props;
+      const { children, advice } = this.props;
       const { fixed } = this.state;
-  
       return (
         <Responsive minWidth={Responsive.onlyTablet.minWidth}>
           <Visibility
@@ -42,7 +43,7 @@ class DesktopContainer extends Component<DesktopContainerProps, any> {
             <Segment
               inverted
               textAlign="center"
-              style={{ minHeight: 700, padding: "1em 0em" }}
+              style={{ minHeight: advice ? 700 : 90, padding: "1em 0em" }}
               vertical
             >
               <Menu
@@ -65,6 +66,7 @@ class DesktopContainer extends Component<DesktopContainerProps, any> {
                     </Menu.Item>
                   </Container>
               </Menu>
+              { advice ? <HomeHeading /> : null }
             </Segment>
           </Visibility>
           {children}
