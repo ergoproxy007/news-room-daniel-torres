@@ -34,7 +34,7 @@ class App extends Component<AppProps & RouteProps, any> {
         {
           isOriginPathname
           ? <AllNewsFeedsCategories />
-          : <MainContainer>{children}</MainContainer>
+          : <MainContainer pathname={this.props.location?.pathname} >{children}</MainContainer>
         }
       </>
     );

@@ -15,6 +15,7 @@ import HomeHeading from '../../../views/HomepageHeading';
 
 interface MobileContainerProps {
   advice?: boolean
+  pathname?: string
 };
 
 class MobileContainer extends Component<MobileContainerProps, any> {

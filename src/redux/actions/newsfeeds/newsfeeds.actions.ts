@@ -47,12 +47,24 @@ export const trendingAsync = (today: string, count: number) => {
             .then((response) => {
                 const news = response.news as any;
                 const newsfeeds = [] as NewsItem[];
-                newsfeeds.push(...news.coronavirus);
-                newsfeeds.push(...news.activista);
-                newsfeeds.push(...news.autos);
-                newsfeeds.push(...news.decreto);
-                newsfeeds.push(...news.activista);
-                newsfeeds.push(...news.Venezuela);
+                if (news.coronavirus) {
+                    newsfeeds.push(...news.coronavirus);
+                }
+                if (news.cuarentena) {
+                    newsfeeds.push(...news.cuarentena);
+                }
+                if (news.activista) {
+                    newsfeeds.push(...news.activista);
+                }
+                if (news.autos) {
+                    newsfeeds.push(...news.autos);
+                }
+                if (news.decreto) {
+                    newsfeeds.push(...news.decreto);
+                }
+                if (news.Venezuela) {
+                    newsfeeds.push(...news.Venezuela);
+                }
                 dispatch(trending(newsfeeds));
             })
             .catch(error => {

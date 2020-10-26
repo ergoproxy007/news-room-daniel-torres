@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import {
   Container,
   Menu,
+  MenuItemProps,
   Responsive,
   Segment,
   Visibility
@@ -15,7 +16,8 @@ import HomeHeading from '../../../views/HomepageHeading';
 import "semantic-ui-css/semantic.min.css";
 
 interface DesktopContainerProps {
-  advice?: boolean
+  advice?: boolean,
+  pathname?: string
 };
 
 class DesktopContainer extends Component<DesktopContainerProps, any> {
@@ -24,15 +26,26 @@ class DesktopContainer extends Component<DesktopContainerProps, any> {
         advice: PropTypes.bool
     };
 
-    state = {fixed: false};
+    state = {fixed: false, activeItem: 'home' };
+ 
+    category = {
+      politica: '/category/1',
+      internacional: '/category/2',
+      tecnologia: '/category/3',
+      espectaculos: '/category/4',
+      deportes: '/category/5'
+    }
 
-    public componentDidMount(): void {}
+    private handleItemClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+                               data: MenuItemProps): void => {
+                                 this.setState({ activeItem: data.name });
+                               };
   
     hideFixedMenu = () => this.setState({ fixed: false });
     showFixedMenu = () => this.setState({ fixed: true });
-  
+
     public render() {
-      const { children, advice } = this.props;
+      const { children, advice, pathname } = this.props;
       const { fixed } = this.state;
       return (
         <Responsive minWidth={Responsive.onlyTablet.minWidth}>
@@ -54,23 +67,25 @@ class DesktopContainer extends Component<DesktopContainerProps, any> {
                 secondary={!fixed}
                 size="large">
                   <Container fluid>
-                    <Menu.Item as="a" active>
+                    <Menu.Item as='a' active={pathname === undefined}
+                      name='home'>
                       <Link to="/">HOME</Link>
                     </Menu.Item>
-                    <Menu.Item as="a">
-                      <Link to="/category/1">POLITÍCA</Link>
+                    <Menu.Item as='a' active={pathname === this.category.politica}
+                      name='politica'>
+                      <Link to={this.category.politica}>POLITÍCA</Link>
                     </Menu.Item>
-                    <Menu.Item as="a">
-                      <Link to="/category/2">INTERNACIONAL</Link>
+                    <Menu.Item as="a" active={pathname === this.category.internacional}>
+                      <Link to={this.category.internacional}>INTERNACIONAL</Link>
                     </Menu.Item>
-                    <Menu.Item as="a">
-                      <Link to="/category/3">TECNOLOGÍA</Link>
+                    <Menu.Item as="a" active={pathname === this.category.tecnologia}>
+                      <Link to={this.category.tecnologia}>TECNOLOGÍA</Link>
                     </Menu.Item>
-                    <Menu.Item as="a">
-                      <Link to="/category/4">ESPECTÁCULOS</Link>
+                    <Menu.Item as="a" active={pathname === this.category.espectaculos}>
+                      <Link to={this.category.espectaculos}>ESPECTÁCULOS</Link>
                     </Menu.Item>
-                    <Menu.Item as="a">
-                      <Link to="/category/5">DEPORTES</Link>
+                    <Menu.Item as="a" active={pathname === this.category.deportes}>
+                      <Link to={this.category.deportes}>DEPORTES</Link>
                     </Menu.Item>
                     <Menu.Item position="right">
                       <SearchNews ancho={16} />

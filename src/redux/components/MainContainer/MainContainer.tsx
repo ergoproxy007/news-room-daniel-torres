@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import ResponsiveContainer from '../ResponsiveContainer';
 
-class MainContainer extends Component {
+
+interface MainContainerProps {
+  pathname?: string 
+};
+
+class MainContainer extends Component<MainContainerProps, any> {
   public render() {
     return (
       <div>
-          <ResponsiveContainer>
+          <ResponsiveContainer pathname={this.props.pathname}>
             {this.props.children}
           </ResponsiveContainer>
       </div>
