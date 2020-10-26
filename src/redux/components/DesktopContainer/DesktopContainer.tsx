@@ -53,17 +53,27 @@ class DesktopContainer extends Component<DesktopContainerProps, any> {
                 pointing={!fixed}
                 secondary={!fixed}
                 size="large">
-                  <Container>
+                  <Container fluid>
                     <Menu.Item as="a" active>
-                      <Link to="/home">HOME</Link>
+                      <Link to="/">HOME</Link>
                     </Menu.Item>
-                    <Menu.Item as="a">POLITÍCA</Menu.Item>
-                    <Menu.Item as="a">INTERNACIONAL</Menu.Item>
-                    <Menu.Item as="a">TECNOLOGÍA</Menu.Item>
-                    <Menu.Item as="a">ESPECTÁCULOS</Menu.Item>
-                    <Menu.Item as="a">DEPORTES</Menu.Item>
+                    <Menu.Item as="a">
+                      <Link to="/category/1">POLITÍCA</Link>
+                    </Menu.Item>
+                    <Menu.Item as="a">
+                      <Link to="/category/2">INTERNACIONAL</Link>
+                    </Menu.Item>
+                    <Menu.Item as="a">
+                      <Link to="/category/3">TECNOLOGÍA</Link>
+                    </Menu.Item>
+                    <Menu.Item as="a">
+                      <Link to="/category/4">ESPECTÁCULOS</Link>
+                    </Menu.Item>
+                    <Menu.Item as="a">
+                      <Link to="/category/5">DEPORTES</Link>
+                    </Menu.Item>
                     <Menu.Item position="right">
-                      <SearchNews ancho={8} />
+                      <SearchNews ancho={16} />
                     </Menu.Item>
                   </Container>
               </Menu>

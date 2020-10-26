@@ -1,33 +1,37 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card, Icon, Image } from 'semantic-ui-react'
+import { NewsItem } from '../../redux/model/data/NewsItem';
+import PropTypes from 'prop-types';
 
-type CardNewsProps = {
-  //
+interface CardNewsProps {
+  newsItem: NewsItem
 };
 
-class CardNews extends Component<CardNewsProps, any> {
-  public render() {
-    return (
-      <Card>
-        <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
-        <Card.Content>
-          <Card.Header>Matthew</Card.Header>
-          <Card.Meta>
-            <span className='date'>Joined in 2015</span>
-          </Card.Meta>
-          <Card.Description>
-            Matthew is a musician living in Nashville.
-          </Card.Description>
-        </Card.Content>
-        <Card.Content extra>
-          <a>
-            <Icon name='eye' />
-            VER MÁS
-          </a>
-        </Card.Content>
-      </Card>
-    );
-  }
+const CardNews: React.FC<CardNewsProps> = ({newsItem}) => {
+  return (
+    <Card style={{ minHeight: '340px', marginBottom: '1.3rem' }}>
+      <Image src={newsItem.img_url} wrapped ui={false} alt='Foto Noticia' />
+      <Card.Content>
+        <Card.Header>{newsItem.source_name}</Card.Header>
+        <Card.Meta>
+          <span className='date'>{newsItem.category}</span>
+        </Card.Meta>
+        <Card.Description>
+          {newsItem.title}
+        </Card.Description>
+      </Card.Content>
+      <Card.Content extra>
+        <a href={newsItem.url} target='_blank' rel='noopener noreferrer'>
+          <Icon name='eye' />
+          VER MÁS
+        </a>
+      </Card.Content>
+    </Card>
+  );
+}
+
+CardNews.propTypes = {
+  newsItem: PropTypes.object.isRequired as PropTypes.Validator<NewsItem>
 }
 
 export default CardNews;

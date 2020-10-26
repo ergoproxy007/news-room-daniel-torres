@@ -1,20 +1,27 @@
-import { FIRST_TEN_NEWS, LIST_ALL_NEWS, TypeActionsNews } from "../actions/newsfeeds/newsfeeds.types.actions";
+import { GET_BY_CATEGORY, TRENDING, TypeActionsNews } from "../actions/newsfeeds/newsfeeds.types.actions";
 import { NewsItem } from "../model/data/NewsItem";
 import { NewsFeedsState } from "../model/NewsFeedsState";
 
 const initialState: NewsFeedsState = {
-  newsItem: Array<NewsItem>()
+  newsItems: Array<NewsItem>()
 };
   
 export default function (state = initialState, action: TypeActionsNews): NewsFeedsState {
   switch (action.type) {
-    case FIRST_TEN_NEWS: {
+    case GET_BY_CATEGORY: {
         const newsfeeds = action.payload;
         return {
           ...state,
-          newsItem: newsfeeds
+          newsItems: newsfeeds
         };
     }
+    case TRENDING: {
+      const newsfeeds = action.payload;
+      return {
+        ...state,
+        newsItems: newsfeeds
+      };
+  }
     default:
       return state;
   }

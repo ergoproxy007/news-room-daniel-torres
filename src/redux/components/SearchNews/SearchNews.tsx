@@ -11,10 +11,11 @@ class SearchNews extends Component<SearchNewsProps, any> {
     public render() {
         return (
             <Grid>
-                <Grid.Column width={this.props.ancho}>
-                    <Search category placeholder='Buscar'
-                    />
-                </Grid.Column>
+                <Grid.Row color='black'>
+                    <Grid.Column width={this.props.ancho}>
+                        <Search category placeholder='Buscar' />
+                    </Grid.Column>
+                </Grid.Row>
             </Grid>
         );
     }

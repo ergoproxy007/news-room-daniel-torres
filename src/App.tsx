@@ -5,17 +5,19 @@ import { ScreenState } from './redux/model/ScreenState';
 import MainContainer from './redux/components/MainContainer';
 import ResponsiveContainer from './redux/components/ResponsiveContainer';
 import CategoryNews from './redux/components/CategoryNews';
+import HomepageLayout from './redux/components/HomepageLayout';
 
 interface AppProps {
   lightMode: boolean,
   darkMode: boolean
 };
 
-const AllNewsFeeds = () => {
+const AllNewsFeedsCategories = () => {
   return (
     <div>
       <ResponsiveContainer advice>
-        <CategoryNews />
+        <CategoryNews titleCategory='Hoy' />
+        <HomepageLayout />
       </ResponsiveContainer>
     </div>
     );
@@ -25,14 +27,13 @@ class App extends Component<AppProps & RouteProps, any> {
   state = {};
 
   public render() {
-    console.log(this.props.location?.pathname);
-    const isOriginPathname = this.props.location?.pathname === '/';
     const { children } = this.props;
+    const isOriginPathname = this.props.location?.pathname === '/';
     return (
       <>
         {
           isOriginPathname
-          ? <AllNewsFeeds />
+          ? <AllNewsFeedsCategories />
           : <MainContainer>{children}</MainContainer>
         }
       </>

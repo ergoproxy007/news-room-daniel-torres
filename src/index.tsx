@@ -16,7 +16,7 @@ render(
     <HashRouter>
       <App>
         <Switch>
-          <Route path="/home" component={CategoryNews} />
+          <Route path='/category/:id' component={CategoryNews} />
         </Switch>
       </App>
     </HashRouter>
