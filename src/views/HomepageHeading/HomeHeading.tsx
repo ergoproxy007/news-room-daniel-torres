@@ -1,30 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import {
   Button,
   Container,
-  Divider,
-  Grid,
   Header,
-  Icon,
-  Image,
-  List,
-  Menu,
-  Responsive,
-  Segment,
-  Sidebar,
-  Visibility
+  Icon
 } from "semantic-ui-react";
 
 type HomeHeadingProps = React.PropsWithChildren<{
-    mobile: boolean
+    mobile?: boolean
 }>;
 
 const HomeHeading: React.FC<HomeHeadingProps> = ({ mobile }) => {
-    console.log("mobile: " + mobile);
     const Icono: any = Icon;
-    return (  
+    return (
         <Container text>
             <Header
                 as="h1"
@@ -48,8 +37,8 @@ const HomeHeading: React.FC<HomeHeadingProps> = ({ mobile }) => {
                 }}
             />
             <Button primary size="huge">
-            Get Started
-            <Icono name="right arrow" />
+                Get Started
+                <Icono name="right arrow" />
             </Button>
         </Container>
     );

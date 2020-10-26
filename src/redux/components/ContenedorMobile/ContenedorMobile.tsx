@@ -10,7 +10,8 @@ import {
     Segment,
     Sidebar
   } from "semantic-ui-react";
-import HomeHeading from '../../../views/HomepageHeading/HomeHeading';
+import SearchNews from '../SearchNews';
+import HomeHeading from '../../../views/HomepageHeading';
 
 type ContenedorMobileProps = {
 };
@@ -52,7 +53,6 @@ class ContenedorMobile extends Component<ContenedorMobileProps, any> {
                 <Menu.Item as="a">TECNOLOGÍA</Menu.Item>
                 <Menu.Item as="a">ESPECTÁCULOS</Menu.Item>
                 <Menu.Item as="a">DEPORTES</Menu.Item>
-                <Menu.Item as="a">Log in</Menu.Item>
               </Sidebar>
     
               <Sidebar.Pusher
@@ -67,23 +67,16 @@ class ContenedorMobile extends Component<ContenedorMobileProps, any> {
                   vertical
                 >
                   <Container>
-                    <Menu inverted pointing secondary size="large">
-                      <Menu.Item onClick={this.handleToggle}>
-                       <Button Button as="a" color='black'>
+                    <Menu inverted secondary>
+                      <Menu.Item position='left'>
+                        <Button Button as='a' color='black'  onClick={this.handleToggle}>
                           Menu
                         </Button>
-                      </Menu.Item>
-                      <Menu.Item position="right">
-                        <Button as="a" inverted>
-                          Log in
-                        </Button>
-                        <Button as="a" inverted style={{ marginLeft: "0.5em" }}>
-                          Sign Up
-                        </Button>
+                        <SearchNews ancho={4} />
                       </Menu.Item>
                     </Menu>
                   </Container>
-                  <HomeHeading mobile={true} />
+                  <HomeHeading mobile />
                 </Segment>
                 {children}
               </Sidebar.Pusher>

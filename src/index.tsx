@@ -10,13 +10,14 @@ import App from './App';
 import ContenedorPrincipal from './redux/components/ContenedorPrincipal';
 
 import './index.css';
+import HomeHeading from './views/HomepageHeading';
 
 render(
   <Provider store={store}>
     <HashRouter>
       <App>
         <Switch>
-          <Route exact path="/" component={ContenedorPrincipal} />
+          <Route path="/home" component={HomeHeading} />
         </Switch>
       </App>
     </HashRouter>
