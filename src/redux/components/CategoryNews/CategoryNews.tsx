@@ -1,27 +1,35 @@
 import React, {Component} from 'react';
 
+import { connect } from 'react-redux';
+import { NewsItem } from '../../model/data/NewsItem';
+import { ComunState } from '../../model/ComunState';
+import { getListNewsFeedsAsync } from '../../actions/newsfeeds/newsfeeds.actions';
+
+import CardNews from '../../../views/CardNews';
+
 import {
-    Button,
-    Container,
-    Divider,
-    Grid,
-    Header,
-    Image,
-    List,
-    Segment
+  Grid,
+  Header,
+  Segment
 } from "semantic-ui-react";
 
 import "semantic-ui-css/semantic.min.css";
-import CardNews from '../../../views/CardNews';
 
-class CategoriaNoticias extends Component {
+interface CategoryNewsProps {
+  newsItem?: Array<NewsItem>,
+  getListNewsFeeds: (page: number) => void
+};
 
-  state = {}
+class CategoryNews extends Component<CategoryNewsProps, any> {
 
   public componentDidMount(): void {
+    this.props.getListNewsFeeds(1);
   }
 
   public render() {
+    const { newsItem } = this.props;
+    const valor = newsItem && newsItem[0] ? newsItem[0].news_id : 0;
+    console.log('newsItem: ' + valor);
     return (
       <>
         <Segment style={{ padding: "2em 0em" }} vertical>
@@ -63,7 +71,18 @@ class CategoriaNoticias extends Component {
       </>
     );
   }
-
 }
 
-export default CategoriaNoticias;
+const mapStateToProps = (state: ComunState) => {
+  return state.newsfeeds;
+}
+
+const mapDispatchToProps = {
+  getListNewsFeeds: getListNewsFeedsAsync
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CategoryNews);
+

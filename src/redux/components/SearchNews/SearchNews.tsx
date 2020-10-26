@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Search, Grid, Header, Segment, Label } from "semantic-ui-react";
+import { Search, Grid } from "semantic-ui-react";
 import { SemanticWIDTHS } from "semantic-ui-react/dist/commonjs/generic";
 
 type SearchNewsProps = {

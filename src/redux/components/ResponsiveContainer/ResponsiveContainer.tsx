@@ -1,5 +1,4 @@
 import React from 'react';
-import "semantic-ui-css/semantic.min.css";
 import DesktopContainer from '../DesktopContainer';
 import MobileContainer from '../MobileContainer';
 

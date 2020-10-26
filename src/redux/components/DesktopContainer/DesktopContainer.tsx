@@ -3,19 +3,18 @@ import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 
 import {
-  Button,
   Container,
   Menu,
   Responsive,
   Segment,
   Visibility
 } from "semantic-ui-react";
-
-import "semantic-ui-css/semantic.min.css";
 import SearchNews from '../SearchNews';
 import HomeHeading from '../../../views/HomepageHeading';
 
-type DesktopContainerProps = {
+import "semantic-ui-css/semantic.min.css";
+
+interface DesktopContainerProps {
   advice?: boolean
 };
 
@@ -26,6 +25,8 @@ class DesktopContainer extends Component<DesktopContainerProps, any> {
     };
 
     state = {fixed: false};
+
+    public componentDidMount(): void {}
   
     hideFixedMenu = () => this.setState({ fixed: false });
     showFixedMenu = () => this.setState({ fixed: true });

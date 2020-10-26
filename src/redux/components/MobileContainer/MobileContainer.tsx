@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import "semantic-ui-css/semantic.min.css";
 
 import {
     Button,
@@ -14,7 +13,7 @@ import {
 import SearchNews from '../SearchNews';
 import HomeHeading from '../../../views/HomepageHeading';
 
-type MobileContainerProps = {
+interface MobileContainerProps {
   advice?: boolean
 };
 
@@ -24,6 +23,8 @@ class MobileContainer extends Component<MobileContainerProps, any> {
         advice: PropTypes.bool
     };
     state = {sidebarOpened: false};
+
+    public componentDidMount(): void {}
 
     handlePusherClick = () => {
       const { sidebarOpened } = this.state;

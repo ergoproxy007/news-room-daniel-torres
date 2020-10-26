@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { ScreenState } from './redux/model/ScreenState';
 import MainContainer from './redux/components/MainContainer';
 import ResponsiveContainer from './redux/components/ResponsiveContainer';
-import CategoriaNoticias from './redux/components/CategoriaNoticias';
+import CategoryNews from './redux/components/CategoryNews';
 
 interface AppProps {
   lightMode: boolean,
@@ -15,7 +15,7 @@ const AllNewsFeeds = () => {
   return (
     <div>
       <ResponsiveContainer advice>
-        <CategoriaNoticias />
+        <CategoryNews />
       </ResponsiveContainer>
     </div>
     );
