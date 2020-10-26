@@ -15,7 +15,6 @@ import HomeHeading from '../../../views/HomepageHeading';
 
 interface MobileContainerProps {
   advice?: boolean
-  pathname?: string
 };
 
 class MobileContainer extends Component<MobileContainerProps, any> {
@@ -23,9 +22,16 @@ class MobileContainer extends Component<MobileContainerProps, any> {
         children: PropTypes.node,
         advice: PropTypes.bool
     };
+
     state = {sidebarOpened: false};
 
-    public componentDidMount(): void {}
+    category = {
+      politica: '/category/1',
+      internacional: '/category/2',
+      tecnologia: '/category/3',
+      espectaculos: '/category/4',
+      deportes: '/category/5'
+    }
 
     handlePusherClick = () => {
       const { sidebarOpened } = this.state;
@@ -52,14 +58,14 @@ class MobileContainer extends Component<MobileContainerProps, any> {
                 visible={sidebarOpened}
                 width='thin'
               >
-                <Menu.Item as="a" active>
-                  <Link to="/home">HOME</Link>
+                <Menu.Item as="a">
+                  <Link to="/">HOME</Link>
                 </Menu.Item>
-                <Menu.Item as="a">POLITÍCA</Menu.Item>
-                <Menu.Item as="a">INTERNACIONAL</Menu.Item>
-                <Menu.Item as="a">TECNOLOGÍA</Menu.Item>
-                <Menu.Item as="a">ESPECTÁCULOS</Menu.Item>
-                <Menu.Item as="a">DEPORTES</Menu.Item>
+                <Menu.Item as="a"><Link to={this.category.politica}>POLITÍCA</Link></Menu.Item>
+                <Menu.Item as="a"><Link to={this.category.internacional}>INTERNACIONAL</Link></Menu.Item>
+                <Menu.Item as="a"><Link to={this.category.tecnologia}>TECNOLOGÍA</Link></Menu.Item>
+                <Menu.Item as="a"><Link to={this.category.espectaculos}>ESPECTÁCULOS</Link></Menu.Item>
+                <Menu.Item as="a"><Link to={this.category.deportes}>DEPORTES</Link></Menu.Item>
               </Sidebar>
     
               <Sidebar.Pusher

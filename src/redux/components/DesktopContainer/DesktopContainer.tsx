@@ -5,15 +5,12 @@ import PropTypes from 'prop-types';
 import {
   Container,
   Menu,
-  MenuItemProps,
   Responsive,
   Segment,
   Visibility
 } from "semantic-ui-react";
 import SearchNews from '../SearchNews';
 import HomeHeading from '../../../views/HomepageHeading';
-
-import "semantic-ui-css/semantic.min.css";
 
 interface DesktopContainerProps {
   advice?: boolean,
@@ -35,11 +32,6 @@ class DesktopContainer extends Component<DesktopContainerProps, any> {
       espectaculos: '/category/4',
       deportes: '/category/5'
     }
-
-    private handleItemClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-                               data: MenuItemProps): void => {
-                                 this.setState({ activeItem: data.name });
-                               };
   
     hideFixedMenu = () => this.setState({ fixed: false });
     showFixedMenu = () => this.setState({ fixed: true });
@@ -67,12 +59,10 @@ class DesktopContainer extends Component<DesktopContainerProps, any> {
                 secondary={!fixed}
                 size="large">
                   <Container fluid>
-                    <Menu.Item as='a' active={pathname === undefined}
-                      name='home'>
+                    <Menu.Item as='a' active={pathname === undefined}>
                       <Link to="/">HOME</Link>
                     </Menu.Item>
-                    <Menu.Item as='a' active={pathname === this.category.politica}
-                      name='politica'>
+                    <Menu.Item as='a' active={pathname === this.category.politica}>
                       <Link to={this.category.politica}>POLITÍCA</Link>
                     </Menu.Item>
                     <Menu.Item as="a" active={pathname === this.category.internacional}>

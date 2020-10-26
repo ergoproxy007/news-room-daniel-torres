@@ -14,8 +14,6 @@ import {
   Segment
 } from "semantic-ui-react";
 
-import "semantic-ui-css/semantic.min.css";
-
 interface CategoryNewsProps {
   newsItems?: Array<NewsItem>,
   titleCategory: string,

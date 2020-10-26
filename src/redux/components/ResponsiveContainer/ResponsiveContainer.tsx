@@ -9,7 +9,7 @@ type ResponsiveContainerProps = React.PropsWithChildren<{
 
 const ResponsiveContainer: React.FC<ResponsiveContainerProps> = (props) => {
     const Desktop = ({ children }: ResponsiveContainerProps) => (<DesktopContainer advice={props.advice} pathname={props.pathname}>{children}</DesktopContainer>);
-    const Mobile = ({ children }: ResponsiveContainerProps) => (<MobileContainer advice={props.advice} pathname={props.pathname}>{children}</MobileContainer>);
+    const Mobile = ({ children }: ResponsiveContainerProps) => (<MobileContainer advice={props.advice}>{children}</MobileContainer>);
     return (
         <div>
             <Desktop> {props.children} </Desktop>
