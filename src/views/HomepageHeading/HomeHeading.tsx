@@ -6,6 +6,7 @@ import {
   Header,
   Icon
 } from "semantic-ui-react";
+import DropdownCategories from '../DropdownCategories';
 
 type HomeHeadingProps = React.PropsWithChildren<{
     mobile?: boolean
@@ -36,10 +37,7 @@ const HomeHeading: React.FC<HomeHeadingProps> = ({ mobile }) => {
                     marginTop: mobile ? "0.5em" : "1.5em"
                 }}
             />
-            <Button primary size="huge">
-                Get Started
-                <Icono name="right arrow" />
-            </Button>
+            <DropdownCategories />
         </Container>
     );
 }

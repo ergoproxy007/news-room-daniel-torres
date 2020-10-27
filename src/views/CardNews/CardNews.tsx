@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Icon, Image, List } from 'semantic-ui-react'
 import { NewsItem } from '../../redux/model/data/NewsItem';
 import PropTypes from 'prop-types';
 
@@ -21,10 +21,14 @@ const CardNews: React.FC<CardNewsProps> = ({newsItem}) => {
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <a href={newsItem.url} target='_blank' rel='noopener noreferrer'>
-          <Icon name='eye' />
-          VER MÁS
-        </a>
+        <List>
+          <List.Item
+            as="a"
+            content="🌐 VER MÁS"
+            href={newsItem.url}
+            target="_blank"
+          />
+        </List>
       </Card.Content>
     </Card>
   );
