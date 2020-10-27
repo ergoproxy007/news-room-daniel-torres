@@ -58,14 +58,14 @@ class MobileContainer extends Component<MobileContainerProps, any> {
                 visible={sidebarOpened}
                 width='thin'
               >
-                <Menu.Item as="a">
+                <Menu.Item>
                   <Link to="/">HOME</Link>
                 </Menu.Item>
-                <Menu.Item as="a"><Link to={this.category.politica}>POLITÍCA</Link></Menu.Item>
-                <Menu.Item as="a"><Link to={this.category.internacional}>INTERNACIONAL</Link></Menu.Item>
-                <Menu.Item as="a"><Link to={this.category.tecnologia}>TECNOLOGÍA</Link></Menu.Item>
-                <Menu.Item as="a"><Link to={this.category.espectaculos}>ESPECTÁCULOS</Link></Menu.Item>
-                <Menu.Item as="a"><Link to={this.category.deportes}>DEPORTES</Link></Menu.Item>
+                <Menu.Item><Link to={this.category.politica}>POLITÍCA</Link></Menu.Item>
+                <Menu.Item><Link to={this.category.internacional}>INTERNACIONAL</Link></Menu.Item>
+                <Menu.Item><Link to={this.category.tecnologia}>TECNOLOGÍA</Link></Menu.Item>
+                <Menu.Item><Link to={this.category.espectaculos}>ESPECTÁCULOS</Link></Menu.Item>
+                <Menu.Item><Link to={this.category.deportes}>DEPORTES</Link></Menu.Item>
               </Sidebar>
     
               <Sidebar.Pusher

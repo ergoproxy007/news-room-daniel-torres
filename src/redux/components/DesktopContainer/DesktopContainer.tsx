@@ -59,22 +59,22 @@ class DesktopContainer extends Component<DesktopContainerProps, any> {
                 secondary={!fixed}
                 size="large">
                   <Container fluid>
-                    <Menu.Item as='a' active={pathname === undefined}>
+                    <Menu.Item active={pathname === undefined}>
                       <Link to="/">HOME</Link>
                     </Menu.Item>
-                    <Menu.Item as='a' active={pathname === this.category.politica}>
+                    <Menu.Item active={pathname === this.category.politica}>
                       <Link to={this.category.politica}>POLITÍCA</Link>
                     </Menu.Item>
-                    <Menu.Item as="a" active={pathname === this.category.internacional}>
+                    <Menu.Item active={pathname === this.category.internacional}>
                       <Link to={this.category.internacional}>INTERNACIONAL</Link>
                     </Menu.Item>
-                    <Menu.Item as="a" active={pathname === this.category.tecnologia}>
+                    <Menu.Item active={pathname === this.category.tecnologia}>
                       <Link to={this.category.tecnologia}>TECNOLOGÍA</Link>
                     </Menu.Item>
-                    <Menu.Item as="a" active={pathname === this.category.espectaculos}>
+                    <Menu.Item active={pathname === this.category.espectaculos}>
                       <Link to={this.category.espectaculos}>ESPECTÁCULOS</Link>
                     </Menu.Item>
-                    <Menu.Item as="a" active={pathname === this.category.deportes}>
+                    <Menu.Item active={pathname === this.category.deportes}>
                       <Link to={this.category.deportes}>DEPORTES</Link>
                     </Menu.Item>
                     <Menu.Item position="right">

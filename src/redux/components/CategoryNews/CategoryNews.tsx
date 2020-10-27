@@ -8,11 +8,15 @@ import { getListNewsFeedsAsync, trendingAsync } from '../../actions/newsfeeds/ne
 
 import CardNews from '../../../views/CardNews';
 
+import _ from 'lodash';
+
 import {
   Grid,
   Header,
-  Segment
+  Segment,
+  Dimmer, Loader, Image
 } from "semantic-ui-react";
+import DimmerLoaderCard from '../../../views/DimmerLoaderCard';
 
 interface CategoryNewsProps {
   newsItems?: Array<NewsItem>,
@@ -63,6 +67,7 @@ class CategoryNews extends Component<CategoryNewsProps & RouteProps, any> {
   public render() {
     const { newsItems, titleCategory } = this.props;
     const { idCategory } = this.state;
+    const indefinido = newsItems ? newsItems.length === undefined || newsItems.length === 0 : true;
     return (
       <>
         <Segment style={{ padding: "2em 0em" }} vertical>
@@ -75,6 +80,14 @@ class CategoryNews extends Component<CategoryNewsProps & RouteProps, any> {
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
+              {_.times(3, (i) => (
+                indefinido 
+                ? 
+                  <Grid.Column width={5}>
+                    <DimmerLoaderCard key={i} />
+                  </Grid.Column>
+                : null
+                ))}
               {
                 newsItems?.map((item: NewsItem) => {
                   return (
