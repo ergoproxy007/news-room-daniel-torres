@@ -9,6 +9,11 @@ export const getListNewsFeeds = (newsItem: Array<NewsItem>): TypeActionsNews => 
     };
 }
 
+/**
+  * get newsfeeds by category id.
+  * @param {number} id - category id.
+  * @return {Array<NewsItem>} - category newsfeeds.
+*/
 export const getListNewsFeedsAsync = (id: number) => {
     return (dispatch: any) => {
         CanillitappRepository.searchNewsFeeds(id)
@@ -40,6 +45,12 @@ export const trending = (newsItem: Array<NewsItem>): TypeActionsNews => {
     };
 }
 
+/**
+  * get trending newsfeeds by specific categories, like coronavirus, cuarentena, activista, etc.
+  * @param {number} today - string date for find newsfeed.
+  * @param {number} count - records count.
+  * @return {NewsItem[]} - category newsfeeds.
+*/
 export const trendingAsync = (today: string, count: number) => {
     return (dispatch: any) => {
         CanillitappRepository.trending(today, count)
@@ -80,6 +91,11 @@ export const searchPhrase = (newsItem: Array<NewsItem>): TypeActionsNews => {
     };
 }
 
+/**
+  * get newsfeeds by specific phrase, using the Search component.
+  * @param {string} phrase - text necesary for the search.
+  * @return {Array<NewsItem>} - all newsfeeds by phrase.
+*/
 export const searchPhrasePromiseAsync = (phrase: string) => {
     return (dispatch: any) => {
         return new Promise((resolve, reject) => {
@@ -97,6 +113,10 @@ export const searchPhrasePromiseAsync = (phrase: string) => {
     }
 }
 
+/**
+  * get one News when activated select click event.
+  * @param {Array<NewsItem>} newsItem - one item is received as a list.
+*/
 export const onlyOneSearchAsync = (newsItem: Array<NewsItem>) => {
     return (dispatch: any) => {
         dispatch({

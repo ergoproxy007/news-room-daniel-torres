@@ -10,19 +10,7 @@ import _ from 'lodash';
 import { Search, Grid, Label, SearchResultData, SearchProps } from 'semantic-ui-react';
 import { SemanticWIDTHS } from 'semantic-ui-react/dist/commonjs/generic';
 
-const categoryLayoutRenderer: any = ({ categoryContent, resultsContent } : { categoryContent: any, resultsContent: any }) => (
-    <div>
-      <h3 className='name'>{categoryContent}</h3>
-      <div  className='results'>
-        {resultsContent}
-      </div>
-    </div>
-)
-
-categoryLayoutRenderer.propTypes = {
-    categoryContent: PropTypes.node,
-    resultsContent: PropTypes.node,
-}
+const initialState = { isLoading: false, results: [], value: '', isSelected: false, limit: 8 }
 
 const categoryRenderer: any = ({ name }: { name: string }) => <Label as='span' content={name} />
 
@@ -36,15 +24,38 @@ resultRenderer.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
 }
-  
-const initialState = { isLoading: false, results: [], value: '', isSelected: false, limit: 8 }
 
+/**
+   * paints a list of results for the entered text.
+   * @param {object} categoryContent - category name.
+   * @param {object} resultsContent - search result.
+   * @returns {*} - square with results below input.
+*/
+const categoryLayoutRenderer: any = ({ categoryContent, resultsContent } : { categoryContent: any, resultsContent: any }) => (
+    <div>
+      <h3 className='name'>{categoryContent}</h3>
+      <div className='results'>
+        {resultsContent}
+      </div>
+    </div>
+)
 
-const getResultsAsync = (count: number, news: any[]) => {
-    return news && news.length > 0 ? getResults2(count, news) : null;
+categoryLayoutRenderer.propTypes = {
+    categoryContent: PropTypes.node,
+    resultsContent: PropTypes.node,
 }
 
-const getResults2 = (count: number, news: any[]) => 
+const getResultsValidData = (count: number, news: any[]) => {
+    return news && news.length > 0 ? getResults(count, news) : null;
+}
+
+/**
+   * build json object to be shipped CardNews component.
+   * @param {object} count - number of records.
+   * @param {object} news - search result.
+   * @returns {*} - Renderable SearchCategory contents.
+*/
+const getResults = (count: number, news: any[]) => 
     _.times(count, (i) => (
         {
             id: news[i].news_id,
@@ -66,14 +77,24 @@ interface SearchNewsProps {
 class SearchNews extends Component<SearchNewsProps, any> {
   state = initialState;
 
-  handleResultSelect: any = (event: React.MouseEvent<HTMLDivElement>, data: SearchResultData) => {
+  /**
+   * when the user click in a item result, it sends record to the reducer for render.
+   * @param {MouseEvent} event - element event.
+   * @param {SearchResultData} data - for get the result of data with click.
+  */
+  private handleResultSelect: any = (event: React.MouseEvent<HTMLDivElement>, data: SearchResultData) => {
     const { result } = data;
     const newsfeeds: any[] = [];
     newsfeeds.push(result);
     this.setState({ value: result.title, isSelected: true, results: [] }, () => this.props.onlyOneSearch(newsfeeds));
   }
 
-  handleSearchChange: any = (event: React.MouseEvent<HTMLElement>, data: SearchProps) => {
+  /**
+   * charge all petition information while it is writing the phrase.
+   * @param {MouseEvent} event - element event.
+   * @param {SearchProps} data - for get the result of data with click.
+  */
+  private handleSearchChange: any = (event: React.MouseEvent<HTMLElement>, data: SearchProps) => {
     const { value } = data;
     this.setState({ isLoading: true, isSelected: false, value })
 
@@ -89,7 +110,7 @@ class SearchNews extends Component<SearchNewsProps, any> {
                 const source = Array.from(caterories, (x, i) => x).reduce((memo: any, listCategory: any[]) => {
                     const name = 'Todas las categorías';
                     // eslint-disable-next-line no-param-reassign
-                    memo[name] = { name, results: getResultsAsync(this.state.limit, listCategory) }
+                    memo[name] = { name, results: getResultsValidData(this.state.limit, listCategory) }
                     return memo
                 }, {})
                 

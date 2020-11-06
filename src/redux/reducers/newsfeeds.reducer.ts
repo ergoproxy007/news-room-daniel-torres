@@ -6,7 +6,7 @@ const initialState: NewsFeedsState = {
   newsItems: Array<NewsItem>(),
   isSearch: false
 };
-  
+
 export default function (state = initialState, action: TypeActionsNews): NewsFeedsState {
   switch (action.type) {
     case GET_BY_CATEGORY: {

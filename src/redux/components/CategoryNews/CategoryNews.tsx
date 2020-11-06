@@ -32,6 +32,7 @@ class CategoryNews extends Component<CategoryNewsProps & RouteProps, any> {
 
   state = {idCategory: 0};
 
+  /** valid if the petition is with route param for show one category or should be charge the trendings */
   public componentDidMount(): void {
     this.parametros = this.props;
     if (this.parametros.match) {
@@ -44,6 +45,7 @@ class CategoryNews extends Component<CategoryNewsProps & RouteProps, any> {
     }
   }
 
+  /** get a name of category by id */
   private getTitle = (idCategory: number, titleCategory: string): string => {
     if (titleCategory) {
       return titleCategory;
@@ -58,6 +60,7 @@ class CategoryNews extends Component<CategoryNewsProps & RouteProps, any> {
     }
   }
 
+  /** build a string date like YYYY-MM-DD format */
   private obtenerFechaGuionYYYYMMDD = (): string => {
     const feentrada = new Date();
     const anio = feentrada.getFullYear();
