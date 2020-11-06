@@ -13,13 +13,15 @@ import _ from 'lodash';
 import {
   Grid,
   Header,
-  Segment,
-  Dimmer, Loader, Image
+  Segment
 } from "semantic-ui-react";
 import DimmerLoaderCard from '../../../views/DimmerLoaderCard';
 
+const TITLE_SEARCH = 'Resulatados de búsqueda...';
+
 interface CategoryNewsProps {
   newsItems?: Array<NewsItem>,
+  isSearch?: boolean,
   titleCategory: string,
   getListNewsFeeds: (page: number) => void,
   trending: (today: string, count: number) => void
@@ -65,9 +67,10 @@ class CategoryNews extends Component<CategoryNewsProps & RouteProps, any> {
   }
 
   public render() {
-    const { newsItems, titleCategory } = this.props;
+    const { newsItems, isSearch, titleCategory } = this.props;
     const { idCategory } = this.state;
     const indefinido = newsItems ? newsItems.length === undefined || newsItems.length === 0 : true;
+    const renderTitleCategory = isSearch ? TITLE_SEARCH : titleCategory;
     return (
       <>
         <Segment style={{ padding: "2em 0em" }} vertical>
@@ -75,7 +78,7 @@ class CategoryNews extends Component<CategoryNewsProps & RouteProps, any> {
             <Grid.Row>
               <Grid.Column width={16}>
                 <Header as="h3" style={{ fontSize: "2em" }}>
-                  {this.getTitle(idCategory, titleCategory) }
+                  {this.getTitle(idCategory, renderTitleCategory) }
                 </Header>
               </Grid.Column>
             </Grid.Row>

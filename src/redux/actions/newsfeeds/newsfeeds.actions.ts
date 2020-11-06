@@ -1,4 +1,4 @@
-import { GET_BY_CATEGORY, TRENDING, TypeActionsNews } from './newsfeeds.types.actions';
+import { GET_BY_CATEGORY, ONLY_ONE_SEARCH, SEARCH, TRENDING, TypeActionsNews } from './newsfeeds.types.actions';
 import { NewsItem } from '../../model/data/NewsItem';
 import { CanillitappRepository } from '../../../api/canillitapp.repository';
 
@@ -33,7 +33,7 @@ export const getListNewsFeedsAsync = (id: number) => {
     */
 }
 
-export const trending = (newsItem: any): TypeActionsNews => {
+export const trending = (newsItem: Array<NewsItem>): TypeActionsNews => {
     return {
         type: TRENDING,
         payload: newsItem
@@ -70,5 +70,38 @@ export const trendingAsync = (today: string, count: number) => {
             .catch(error => {
                 console.log(error);
             })
+    }
+}
+
+export const searchPhrase = (newsItem: Array<NewsItem>): TypeActionsNews => {
+    return {
+        type: SEARCH,
+        payload: newsItem
+    };
+}
+
+export const searchPhrasePromiseAsync = (phrase: string) => {
+    return (dispatch: any) => {
+        return new Promise((resolve, reject) => {
+            CanillitappRepository.searchPhrase(phrase)
+            .then((response) => response.json())
+            .then((response) => {
+                dispatch(searchPhrase(response));
+                resolve(response);
+            })
+            .catch(error => {
+                console.log(error);
+                reject(error); 
+            })
+        });
+    }
+}
+
+export const onlyOneSearchAsync = (newsItem: Array<NewsItem>) => {
+    return (dispatch: any) => {
+        dispatch({
+            type: ONLY_ONE_SEARCH,
+            payload: newsItem
+        });
     }
 }

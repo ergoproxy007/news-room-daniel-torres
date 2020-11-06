@@ -2,16 +2,27 @@ import { NewsItem } from "../../model/data/NewsItem";
 
 export const GET_BY_CATEGORY = 'GET_BY_CATEGORY';
 export const TRENDING = 'GET_TRENDING';
-export const LIST_ALL_NEWS = 'LIST_ALL_NEWS';
+export const SEARCH = 'SEARCH';
+export const ONLY_ONE_SEARCH = 'ONLY_ONE_SEARCH';
 
 interface ActionGetByCategory {
     type: typeof GET_BY_CATEGORY;
-    payload: NewsItem[];
+    payload: Array<NewsItem>;
 }
 
 interface ActionGetTrending {
     type: typeof TRENDING;
-    payload: NewsItem[];
+    payload: Array<NewsItem>;
 }
 
-export type TypeActionsNews = ActionGetByCategory | ActionGetTrending
+interface ActionGetSearch {
+    type: typeof SEARCH;
+    payload: Array<NewsItem>;
+}
+
+interface ActionOnlyOneSearch {
+    type: typeof ONLY_ONE_SEARCH;
+    payload: Array<NewsItem>;
+}
+
+export type TypeActionsNews = ActionGetByCategory | ActionGetTrending | ActionGetSearch | ActionOnlyOneSearch

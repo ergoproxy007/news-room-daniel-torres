@@ -1,5 +1,6 @@
 import { NewsItem } from "./data/NewsItem";
 
 export interface NewsFeedsState {
-    newsItems: NewsItem[]
+    newsItems: Array<NewsItem>,
+    isSearch: boolean
 }
