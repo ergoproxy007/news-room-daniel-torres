@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {
-  Button,
   Container,
   Header,
   Icon
@@ -13,7 +12,6 @@ type HomeHeadingProps = React.PropsWithChildren<{
 }>;
 
 const HomeHeading: React.FC<HomeHeadingProps> = ({ mobile }) => {
-    const Icono: any = Icon;
     return (
         <Container text>
             <Header

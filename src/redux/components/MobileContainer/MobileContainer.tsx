@@ -82,7 +82,7 @@ class MobileContainer extends Component<MobileContainerProps, any> {
                   <Container>
                     <Menu inverted secondary>
                       <Menu.Item position='left'>
-                        <Button Button as='a' color='black'  onClick={this.handleToggle}>
+                        <Button Button as='a' color='black' onClick={this.handleToggle}>
                           Menu
                         </Button>
                         <SearchNews ancho={4} />

@@ -1,6 +1,6 @@
 import { GET_BY_CATEGORY, TRENDING, TypeActionsNews } from './newsfeeds.types.actions';
 import { NewsItem } from '../../model/data/NewsItem';
-import { NewsFeedsRepository } from '../../../api/newsfeeds.repository';
+import { CanillitappRepository } from '../../../api/canillitapp.repository';
 
 export const getListNewsFeeds = (newsItem: Array<NewsItem>): TypeActionsNews => {
     return {
@@ -11,7 +11,7 @@ export const getListNewsFeeds = (newsItem: Array<NewsItem>): TypeActionsNews => 
 
 export const getListNewsFeedsAsync = (id: number) => {
     return (dispatch: any) => {
-        NewsFeedsRepository.searchNewsFeeds(id)
+        CanillitappRepository.searchNewsFeeds(id)
             .then((response) => response.json())
             .then((response) => {
                 dispatch(getListNewsFeeds(response));
@@ -22,7 +22,7 @@ export const getListNewsFeedsAsync = (id: number) => {
     }
     /* Axios not working
     return (dispatch: any) => {
-        NewsFeedsRepository.searchNewsFeeds(page)
+        CanillitappRepository.searchNewsFeeds(page)
         .then(response => {
             dispatch(getListNewsFeeds(response.data));
         })
@@ -42,7 +42,7 @@ export const trending = (newsItem: any): TypeActionsNews => {
 
 export const trendingAsync = (today: string, count: number) => {
     return (dispatch: any) => {
-        NewsFeedsRepository.trending(today, count)
+        CanillitappRepository.trending(today, count)
             .then((response) => response.json())
             .then((response) => {
                 const news = response.news as any;
