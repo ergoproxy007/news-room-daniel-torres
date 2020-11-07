@@ -1,5 +1,3 @@
-// react-testing-library renders your components to document.body,
-// this adds jest-dom's custom assertions
 import React from 'react';
 import { render } from '@testing-library/react';
 import Footer from './Footer';
