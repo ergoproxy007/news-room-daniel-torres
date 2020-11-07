@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
                   <List.Item as="a">Frontend Developer</List.Item>
                   <List.Item as="a" style={{ marginLeft: '10px' }}>JS, React, Angular</List.Item>
                   <List.Item as="a">Backend Developer</List.Item>
-                  <List.Item as="a" style={{ marginLeft: '10px' }}>Java, Scala, C#</List.Item>
+                  <List.Item as="a" style={{ marginLeft: '10px' }}>Java, C#, Phyton</List.Item>
                 </List>
               </Grid.Column>
               <Grid.Column width={3}>
