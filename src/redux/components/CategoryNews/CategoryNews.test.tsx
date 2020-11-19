@@ -44,12 +44,12 @@ describe('Shallow rendered Todo Card', () => {
     it('should render a card with the details of the Todo', () => {
       // Setup wrapper and assign props.
       const { enzymeWrapper, props } = shallowSetup();
-      // enzymeWrapper.find(selector) : Find every node in the render tree that matches the provided selector. 
+      //enzymeWrapper.find(selector) : Find every node in the render tree that matches the provided selector. 
       expect(enzymeWrapper.find('img')).toHaveLength(0);
-      //expect(enzymeWrapper.exists(Header)).toEqual(true);
-      //expect(enzymeWrapper.containsMatchingElement(<div data-foo="foo">Hello</div>)).toEqual(true);
-      //expect(enzymeWrapper.find('button.ui.basic.red.button').text()).toBe('Delete');
+      expect(enzymeWrapper.exists(Header)).toEqual(true);
+      expect(enzymeWrapper.containsMatchingElement(<div data-foo="foo">Hello</div>)).toEqual(true);
+      expect(enzymeWrapper.find('button.ui.basic.red.button').text()).toBe('Delete');
       //enzymeWrapper.containsMatchingElement(node i.e reactElement) : Check if the provided React element matches one element in the render tree. Returns a boolean.
-      //expect(enzymeWrapper.containsMatchingElement(<button>Delete</button>)).toBe(true);
+      expect(enzymeWrapper.containsMatchingElement(<button>Delete</button>)).toBe(true);
     });
 });
