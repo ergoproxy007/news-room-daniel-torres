@@ -89,16 +89,16 @@ class CategoryNews extends Component<CategoryNewsProps & RouteProps, any> {
               {_.times(3, (i) => (
                 indefinido 
                 ? 
-                  <Grid.Column width={5}>
+                  <Grid.Column key={i*2} width={5}>
                     <DimmerLoaderCard key={i} />
                   </Grid.Column>
                 : null
                 ))}
               {
-                newsItems?.map((item: NewsItem) => {
+                newsItems?.map((item: NewsItem, index: number) => {
                   return (
-                    <Grid.Column width={5}>
-                      <CardNews newsItem={item} />
+                    <Grid.Column key={index*2} width={5}>
+                      <CardNews key={index}  newsItem={item} />
                     </Grid.Column>
                   );
                 })

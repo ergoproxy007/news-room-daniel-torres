@@ -56,26 +56,13 @@ export const trendingAsync = (today: string, count: number) => {
         CanillitappRepository.trending(today, count)
             .then((response) => response.json())
             .then((response) => {
-                const news = response.news as any;
                 const newsfeeds = [] as NewsItem[];
-                if (news.coronavirus) {
-                    newsfeeds.push(...news.coronavirus);
-                }
-                if (news.cuarentena) {
-                    newsfeeds.push(...news.cuarentena);
-                }
-                if (news.activista) {
-                    newsfeeds.push(...news.activista);
-                }
-                if (news.autos) {
-                    newsfeeds.push(...news.autos);
-                }
-                if (news.decreto) {
-                    newsfeeds.push(...news.decreto);
-                }
-                if (news.Venezuela) {
-                    newsfeeds.push(...news.Venezuela);
-                }
+                const news = response.news as any;
+                var keyNames = Object.keys(news);
+                keyNames.forEach(keyName => {
+                    const newsItem = news[keyName];
+                    newsfeeds.push(...newsItem);
+                });
                 dispatch(trending(newsfeeds));
             })
             .catch(error => {
